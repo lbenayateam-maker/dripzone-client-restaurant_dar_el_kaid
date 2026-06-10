@@ -78,6 +78,8 @@
       set('[data-i18n="hero.slogan"]', L.hero.slogan);
       set('[data-i18n="hero.cta"]', L.hero.cta);
       set('[data-i18n="hero.about"]', L.hero.about);
+      set('[data-i18n="headings.about"]', L.headings?.about);
+      set('[data-i18n="headings.aboutTag"]', L.headings?.aboutTag);
       set('[data-i18n="headings.services"]', L.headings?.services);
       set('[data-i18n="headings.reviews"]', L.headings?.reviews);
       set('[data-i18n="headings.contact"]', L.headings?.contact);
@@ -139,4 +141,9 @@
   const saved = localStorage.getItem('dz_lang');
   const initial = saved || (window.__DZ_I18N__ && window.__DZ_I18N__.defaultLang) || 'ar';
   applyLocale(initial);
+
+  document.querySelectorAll('a[href*="wa.me"], a[href*="whatsapp.com"]').forEach(a => {
+    a.setAttribute('target', '_blank');
+    a.setAttribute('rel', 'noopener noreferrer');
+  });
 })();
